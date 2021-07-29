@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{msg}}</p>
+    <p>{{ msg }}</p>
 
     <!-- 发送请求-->
     <h2>Chinoukin Test</h2>
@@ -24,6 +24,21 @@
            href="#"
         >
           上传图片
+        </a>
+      </li>
+
+      <li>
+        <a @click='request44'
+           href="#"
+        >
+          路由push跳转
+        </a>
+      </li>
+      <li>
+        <a @click='request55'
+           href="#"
+        >
+          路由location.href跳转
         </a>
       </li>
     </ul>
@@ -72,14 +87,23 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    request44: function () {
+      this.$router.push('/about')
+    },
+    request55: function () {
+      window.location.href = window.location.origin + '/about'
     }
   }
 }
 
 // eslint-disable-next-line no-unused-vars
 function dataURLtoFile (base64, filename) { // 将base64转换为文件
-  var arr = base64.split(','); var mime = arr[0].match(/:(.*?);/)[1]
-  var bstr = atob(arr[1]); var n = bstr.length; var u8arr = new Uint8Array(n)
+  var arr = base64.split(',')
+  var mime = arr[0].match(/:(.*?);/)[1]
+  var bstr = atob(arr[1])
+  var n = bstr.length
+  var u8arr = new Uint8Array(n)
   while (n--) {
     u8arr[n] = bstr.charCodeAt(n)
   }
@@ -92,14 +116,17 @@ function dataURLtoFile (base64, filename) { // 将base64转换为文件
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
