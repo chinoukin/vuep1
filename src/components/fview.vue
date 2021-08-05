@@ -89,7 +89,21 @@ export default {
         })
     },
     request44: function () {
-      this.$router.push('/about')
+      console.log(this.$router)
+      // eslint-disable-next-line camelcase,no-unused-vars
+      var routes_str = ''
+      this.$router.options.routes.forEach(function (ele) {
+        console.log(ele.path)
+        // eslint-disable-next-line camelcase
+        routes_str += ele.path + ','
+      })
+
+      console.log(routes_str)
+      console.log(routes_str.indexOf('/about'))
+      // eslint-disable-next-line eqeqeq
+      if (routes_str.indexOf('/about') != -1) {
+        this.$router.push('/about')
+      }
     },
     request55: function () {
       window.location.href = window.location.origin + '/about'
